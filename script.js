@@ -1,19 +1,37 @@
 let myLibrary = [];
 
-const bookShelf = document.querySelector(".bookshelf");
-const button = document.querySelector("button");
+const bookShelf = document.querySelector(".bookShelf");
+const addBookButton = document.querySelector("#addBookButton");
+const addBookFormPopup = document.getElementById("addBookFormPopup");
+const cancelFormButton = document.getElementById("cancelFormButton");
+const submitFormButton = document.getElementById("submitFormButton")
 
 function Book(name, author) {
     this.name = name
     this.author = author
 }
 
-function addBookToLibrary() {
-    let name = prompt("Book title:");
-    let author = prompt("Author:");
+// close window via event listener, not really in this function
+// then update the page again, also not really in this function (could be if you change styling here..)
+
+function addBookToLibrary(event) {
+    event.preventDefault();
+    let name = document.getElementById("bookName").value;
+    let author = document.getElementById("bookAuthor").value;
     
     let userBook = new Book(name, author);
     myLibrary.push(userBook);
+    closeForm();
+    updatePage();
+    console.log(`${name}, ${author}`);
+}
+
+function openForm() {
+    addBookFormPopup.style.display = "block";
+}
+
+function closeForm() {
+    addBookFormPopup.style.display = "none";
 }
 
 function updatePage(){
@@ -23,7 +41,7 @@ function updatePage(){
         deleteBooks[i].remove();
     }
 
-    // update page with updated library
+    // update page with current library
     for (let i = 0; i < myLibrary.length; i++){
         // create card for each book
         let curBook = document.createElement("div");
@@ -41,5 +59,8 @@ function updatePage(){
     console.log("page updated");
 }
 
-button.addEventListener("click", addBookToLibrary);
-button.addEventListener("click", updatePage);
+addBookButton.addEventListener("click", openForm);
+
+submitFormButton.addEventListener("click", addBookToLibrary);
+
+cancelFormButton.addEventListener("click", closeForm);
