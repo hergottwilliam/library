@@ -3,17 +3,16 @@ let myLibrary = [];
 const bookShelf = document.querySelector(".bookShelf");
 const addBookButton = document.querySelector("#addBookButton");
 const addBookFormPopup = document.getElementById("addBookFormPopup");
+const addBookForm = document.getElementById("addBookForm");
 const cancelFormButton = document.getElementById("cancelFormButton");
-const submitFormButton = document.getElementById("submitFormButton")
+const submitFormButton = document.getElementById("submitFormButton");
 
 function Book(name, author) {
     this.name = name
     this.author = author
 }
 
-// close window via event listener, not really in this function
-// then update the page again, also not really in this function (could be if you change styling here..)
-
+// reset form inputs after submit or cancel
 function addBookToLibrary(event) {
     event.preventDefault();
     let name = document.getElementById("bookName").value;
@@ -23,7 +22,6 @@ function addBookToLibrary(event) {
     myLibrary.push(userBook);
     closeForm();
     updatePage();
-    console.log(`${name}, ${author}`);
 }
 
 function openForm() {
@@ -32,6 +30,8 @@ function openForm() {
 
 function closeForm() {
     addBookFormPopup.style.display = "none";
+    addBookForm.reset();
+
 }
 
 function updatePage(){
@@ -56,7 +56,6 @@ function updatePage(){
         author.textContent = myLibrary[i].author;
         curBook.appendChild(author);
     }
-    console.log("page updated");
 }
 
 addBookButton.addEventListener("click", openForm);
