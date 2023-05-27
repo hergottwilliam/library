@@ -1,6 +1,6 @@
 /* TODO
     - style tf outta this bad boy (try using GPT first)
-    - remove button on each book card (remove from library and update page)
+        use a grid for bookCards
     - read status button on book card (This one might be tricky)
 */
 
@@ -35,9 +35,7 @@ function addBookToLibrary(event) {
 function removeBookFromLibrary(event) {
     let i = event.target.id;
     myLibrary.splice(i, 1);
-    closeForm();
     updatePage();
-
 }
 
 function openForm() {
