@@ -1,7 +1,4 @@
 /* TODO
-    - add book elements (pages)
-        - add new label and input
-        - grab input value in JS and add to book object
     - style tf outta this bad boy (try using GPT first)
     - remove button on each book card (remove from library and update page)
     - read status button on book card (This one might be tricky)
@@ -46,7 +43,7 @@ function closeForm() {
 
 function updatePage(){
     // clear grid first
-    const deleteBooks = document.querySelectorAll(".book-card")
+    const deleteBooks = document.querySelectorAll(".bookCard")
     for (let i = 0; i < deleteBooks.length; i++) {
         deleteBooks[i].remove();
     }
@@ -55,7 +52,8 @@ function updatePage(){
     for (let i = 0; i < myLibrary.length; i++){
         // create card for each book
         let curBook = document.createElement("div");
-        curBook.classList.add("book-card");
+        curBook.classList.add(`bookCard`);
+        curBook.setAttribute("id", `${i}`);
         bookShelf.appendChild(curBook);
 
         let name = document.createElement("p")
@@ -69,6 +67,11 @@ function updatePage(){
         let pages = document.createElement("p");
         pages.textContent = myLibrary[i].pages;
         curBook.appendChild(pages);
+
+        let removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.setAttribute("id", `${i}`);
+        curBook.appendChild(removeButton);
     }
 }
 

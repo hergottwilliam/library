@@ -11,16 +11,22 @@
 <body>
     <h1>Welcome to the library</h1>
     <button class="btn" id="addBookButton">Add book</button>
-    <div class="bookShelf"></div>
+    <div class="bookShelf">
+
+    </div>
     <div class="formPopup" id="addBookFormPopup">
         <form name= "addBookForm" id="addBookForm">
             <h2>Add a new book</h2>
+
             <label>Book name</label>
             <input type="text" id="bookName" placeholder="Moby Dick" name="bookName" required>
+
             <label>Author name</label>
             <input type="text" id="bookAuthor" placeholder="Herman Melville" name="bookAuthor" required>
+
             <label># of pages</label>
             <input type="number" id="bookPages" placeholder="312" name="bookPages" required>
+            
             <button type="submit" class="btn" id="submitFormButton">Add book</button>
             <button type="button" class="btn" id="cancelFormButton">Cancel</button>
         </form>
