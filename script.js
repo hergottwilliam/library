@@ -11,6 +11,7 @@ const addBookForm = document.getElementById("addBookForm");
 const cancelFormButton = document.getElementById("cancelFormButton");
 const submitFormButton = document.getElementById("submitFormButton");
 
+
 let myLibrary = [];
 
 function Book(name, author, pages) {
@@ -29,6 +30,14 @@ function addBookToLibrary(event) {
     myLibrary.push(userBook);
     closeForm();
     updatePage();
+}
+
+function removeBookFromLibrary(event) {
+    let i = event.target.id;
+    myLibrary.splice(i, 1);
+    closeForm();
+    updatePage();
+
 }
 
 function openForm() {
@@ -70,13 +79,17 @@ function updatePage(){
 
         let removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
+        removeButton.classList.add("removeButton");
         removeButton.setAttribute("id", `${i}`);
         curBook.appendChild(removeButton);
+
+        const allRemoveButtons = document.querySelectorAll(".removeButton");
+        allRemoveButtons.forEach((btn) => {
+            btn.addEventListener("click", removeBookFromLibrary);
+        })
     }
 }
 
 addBookButton.addEventListener("click", openForm);
-
 submitFormButton.addEventListener("click", addBookToLibrary);
-
 cancelFormButton.addEventListener("click", closeForm);
