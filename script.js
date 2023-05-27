@@ -1,4 +1,11 @@
-let myLibrary = [];
+/* TODO
+    - add book elements (pages)
+        - add new label and input
+        - grab input value in JS and add to book object
+    - style tf outta this bad boy (try using GPT first)
+    - remove button on each book card (remove from library and update page)
+    - read status button on book card (This one might be tricky)
+*/
 
 const bookShelf = document.querySelector(".bookShelf");
 const addBookButton = document.querySelector("#addBookButton");
@@ -7,18 +14,21 @@ const addBookForm = document.getElementById("addBookForm");
 const cancelFormButton = document.getElementById("cancelFormButton");
 const submitFormButton = document.getElementById("submitFormButton");
 
-function Book(name, author) {
+let myLibrary = [];
+
+function Book(name, author, pages) {
     this.name = name
     this.author = author
+    this.pages = pages
 }
 
-// reset form inputs after submit or cancel
 function addBookToLibrary(event) {
     event.preventDefault();
     let name = document.getElementById("bookName").value;
     let author = document.getElementById("bookAuthor").value;
+    let pages = document.getElementById("bookPages").value;
     
-    let userBook = new Book(name, author);
+    let userBook = new Book(name, author, pages);
     myLibrary.push(userBook);
     closeForm();
     updatePage();
@@ -55,6 +65,10 @@ function updatePage(){
         let author = document.createElement("p");
         author.textContent = myLibrary[i].author;
         curBook.appendChild(author);
+
+        let pages = document.createElement("p");
+        pages.textContent = myLibrary[i].pages;
+        curBook.appendChild(pages);
     }
 }
 
