@@ -1,3 +1,11 @@
+/* TODO
+    style
+        add icon as well
+    add a checkbox to form for read/unread
+        add book object attribute (bool) for read status
+            based on read status, button starts as read/unread
+*/
+
 const bookShelf = document.querySelector(".bookShelf");
 const addBookButton = document.querySelector("#addBookButton");
 const addBookFormPopup = document.getElementById("addBookFormPopup");
