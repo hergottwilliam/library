@@ -9,24 +9,30 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Library</h1>
-    <button class="btn" id="addBookButton">Add book</button>
-    <div class="bookShelf">
-
+    <div class="header">
+        <h1 class="title">Library</h1>
+        <button>Login</button>
     </div>
-    <div class="formPopup" id="addBookFormPopup">
-        <form name= "addBookForm" id="addBookForm">
-            <h2>Add a new book</h2>
-
-            <input type="text" id="bookName" placeholder="Name" name="bookName" required>
-
-            <input type="text" id="bookAuthor" placeholder="Author" name="bookAuthor" required>
-
-            <input type="number" id="bookPages" placeholder="# of pages" name="bookPages" required>
-
-            <button type="submit" class="btn" id="submitFormButton">Add book</button>
-            <button type="button" class="btn" id="cancelFormButton">Cancel</button>
-        </form>
+    <div class="container">
+        <button class="btn" id="addBookButton">Add book</button>
+    
+        <div class="bookShelf"></div>
+    
+        <div class="formPopup" id="addBookFormPopup">
+            <form name= "addBookForm" id="addBookForm">
+                <h2>Add a new book</h2>
+    
+                <input type="text" id="bookName" placeholder="Name" name="bookName" required>
+    
+                <input type="text" id="bookAuthor" placeholder="Author" name="bookAuthor" required>
+    
+                <input type="number" id="bookPages" placeholder="# of pages" name="bookPages" required>
+    
+                <button type="submit" class="btn" id="submitFormButton">Add book</button>
+                <button type="button" class="btn" id="cancelFormButton">Cancel</button>
+            </form>
+        </div>
     </div>
+
 </body>
 </html>

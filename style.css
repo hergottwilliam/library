@@ -1,3 +1,35 @@
+*{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: honeydew;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.container{
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.bookShelf {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto-fill, 120px);
+    row-gap: 5em;
+    column-gap: 1em;
+}
+
+.bookCard{
+    border: 2px solid black;
+    width: fit-content;
+}
+
+
 #addBookFormPopup {
     display: none;
 }
+
