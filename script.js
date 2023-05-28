@@ -1,16 +1,9 @@
-/* TODO
-    - style tf outta this bad boy (try using GPT first)
-        use a grid for bookCards
-    - read status button on book card (This one might be tricky)
-*/
-
 const bookShelf = document.querySelector(".bookShelf");
 const addBookButton = document.querySelector("#addBookButton");
 const addBookFormPopup = document.getElementById("addBookFormPopup");
 const addBookForm = document.getElementById("addBookForm");
 const cancelFormButton = document.getElementById("cancelFormButton");
 const submitFormButton = document.getElementById("submitFormButton");
-
 
 let myLibrary = [];
 
@@ -36,6 +29,15 @@ function removeBookFromLibrary(event) {
     let i = event.target.id;
     myLibrary.splice(i, 1);
     updatePage();
+}
+
+function changeReadStatus(event) {
+    let i = event.target;
+    if (i.textContent == "Read"){
+        i.textContent = "Unread";
+    } else {
+        i.textContent = "Read";
+    }
 }
 
 function openForm() {
@@ -75,11 +77,22 @@ function updatePage(){
         pages.textContent = myLibrary[i].pages;
         curBook.appendChild(pages);
 
+        let readButton = document.createElement("button");
+        readButton.textContent = "Read";
+        readButton.classList.add("readButton");
+        readButton.setAttribute("id", `${i}`);
+        curBook.appendChild(readButton);
+
         let removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.classList.add("removeButton");
         removeButton.setAttribute("id", `${i}`);
         curBook.appendChild(removeButton);
+
+        const allReadButtons = document.querySelectorAll(".readButton");
+        allReadButtons.forEach((btn) => {
+            btn.addEventListener("click", changeReadStatus);
+        })
 
         const allRemoveButtons = document.querySelectorAll(".removeButton");
         allRemoveButtons.forEach((btn) => {
