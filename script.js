@@ -1,11 +1,3 @@
-/* TODO
-    style
-        add icon as well
-    add a checkbox to form for read/unread
-        add book object attribute (bool) for read status
-            based on read status, button starts as read/unread
-*/
-
 const bookShelf = document.querySelector(".bookShelf");
 const addBookButton = document.querySelector("#addBookButton");
 const addBookFormPopup = document.getElementById("addBookFormPopup");
@@ -55,7 +47,6 @@ function openForm() {
 function closeForm() {
     addBookFormPopup.style.display = "none";
     addBookForm.reset();
-
 }
 
 function updatePage(){
@@ -112,3 +103,16 @@ function updatePage(){
 addBookButton.addEventListener("click", openForm);
 submitFormButton.addEventListener("click", addBookToLibrary);
 cancelFormButton.addEventListener("click", closeForm);
+
+/* TODO
+    style
+        add icon as well
+        make so form pops up over the list, not moving any book cards
+        grid format for list
+        make pretty, it not pretty
+        center book cards
+        gap between rows varies
+    add a checkbox to add book form for read/unread
+        add book object attribute (bool) for read status
+            based on read status, button starts as read/unread
+*/
