@@ -115,4 +115,5 @@ cancelFormButton.addEventListener("click", closeForm);
     add a checkbox to add book form for read/unread
         add book object attribute (bool) for read status
             based on read status, button starts as read/unread
+    add README and screenshot
 */
